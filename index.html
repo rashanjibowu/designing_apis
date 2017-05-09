@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<title>Designing APIs 101</title>
+	<meta name="description" content="Designing APIs 101">
+	<meta name="author" content="Rashan Jibowu">
+	<meta name="generator" content="slidify" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/core/deck.core.css">
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/goto/deck.goto.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/hash/deck.hash.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/menu/deck.menu.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/scale/deck.scale.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/status/deck.status.css">
+<!-- Style theme. More available in /themes/style/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/style/swiss.css">
+	
+	<!-- Transition theme. More available in /themes/transition/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/transition/horizontal-slide.css">
+	<script src="libraries/frameworks/deckjs/modernizr.custom.js"></script>
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css">
+	
+	  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+
+<body class="deck-container">
+
+  <!-- Begin slides -->
+  <section class="slide " id="slide-1">
+  <h1>Designing APIs 101</h1>
+  
+</section>
+<section class="slide " id="slide-2">
+  <h2>Problem #1</h2>
+  <p><img src = "img/programmer_cartoon.png" width = "20%" /></p>
+
+<p>I want to write a cool app that helps people get from place to place. My app needs access to map data and directions.</p>
+
+<p>The data (&quot;resources&quot;) exist, but the data do not belong to me.</p>
+
+</section>
+<section class="slide class" id="id">
+  <h2>Problem #2</h2>
+  <p>Luckly, I found a company that was nice enough to give me some data -- Sweet! -- in the form of a CSV files -- hmmmm...</p>
+
+<p><img src = "img/csv_file.png" width = "20%" /></p>
+
+<p>I was provided &quot;access&quot; to the data, but this access method is painful. The data files are clunky, difficult to update, and at high risk of corruption. My app is gonna suck!</p>
+
+</section>
+<section class="slide " id="slide-4">
+  <h2>Meet the API: Application Programming Interface</h2>
+  <p><img src = "img/api.png" width = "60%" /></p>
+
+</section>
+<section class="slide " id="slide-5">
+  <h2>&quot;Interface&quot; is the operative word</h2>
+  <p>Enables and simplifies access to resources</p>
+
+<p><img src="img/electric_socket.jpg" alt="Electric Socket"></p>
+
+</section>
+<section class="slide " id="slide-6">
+  <h2>APIs are Everywhere: Yelp</h2>
+  <p><img src = "img/yelp.png" width = "95%" /></p>
+
+</section>
+<section class="slide " id="slide-7">
+  <h2>APIs are Everywhere: Google Maps</h2>
+  <p><img src = "img/google_maps.png" width = "95%" /></p>
+
+</section>
+<section class="slide " id="slide-8">
+  <h2>APIs are Everywhere: Twilio</h2>
+  <p><img src = "img/twilio.png" width = "95%" /></p>
+
+</section>
+<section class="slide " id="slide-9">
+  <h2>APIs are Everywhere: Plaid</h2>
+  <p><img src = "img/plaid.png" width = "95%" /></p>
+
+</section>
+<section class="slide " id="slide-10">
+  <h2>APIs are Everywhere: Stripe</h2>
+  <p><img src = "img/stripe.png" width = "95%" /></p>
+
+</section>
+<section class="slide " id="slide-11">
+  <h2>APIs are Everywhere: GitHub</h2>
+  <p><img src = "img/github.png" width = "95%" /></p>
+
+</section>
+<section class="slide " id="slide-12">
+  <h2>APIs are Everywhere: SendGrid</h2>
+  <p><img src = "img/sendgrid.png" width = "95%" /></p>
+
+</section>
+<section class="slide " id="slide-13">
+  <h2>APIs are Everywhere: Capital One</h2>
+  <p><img src = "img/capital_one.png" width = "95%" /></p>
+
+</section>
+<section class="slide " id="slide-14">
+  <h2>Why do companies allow others to use their data?</h2>
+  <ul>
+<li>New revenue opportunities</li>
+<li>New business partners</li>
+<li>Tap into innovator communities</li>
+<li>Core to growth strategy</li>
+<li>Contribute to the community</li>
+<li>Brand value</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-15">
+  <h2>Why don&#39;t enough financial companies do this?</h2>
+  <ul>
+<li>Concerns about who owns the data
+
+<ul>
+<li>In Europe, customers own their data</li>
+<li>In the U.S., not as clear</li>
+</ul></li>
+<li>Potential for misuse of the data</li>
+<li>Privacy concerns</li>
+<li>Competitive fear</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-16">
+  <h2>Who <em>produces</em> APIs?</h2>
+  <p>Mr. Ballmer knows where APIs come from ...</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Vhh_GeBPOhs" frameborder="0"></iframe>
+
+</section>
+<section class="slide " id="slide-17">
+  <h2>Who <em>consumes</em> APIs?</h2>
+  <p>The same people use them, too!</p>
+
+<p><img src = "img/silicon-valley-programmers.jpg" width = "90%" /></p>
+
+</section>
+<section class="slide " id="slide-18">
+  <h2>APIs are Products</h2>
+  <blockquote>
+<p>For <code>developers</code> whose applications require third-party resources, like data, media (images, video), computing power, and business processes, RESTful APIs are easy-to-use <code>interfaces</code> that provide reliable access to such <code>services</code>.</p>
+</blockquote>
+
+<p>API = Interface + Services</p>
+
+</section>
+<section class="slide " id="slide-19">
+  <h2>The Interface (the docs/access layer)</h2>
+  <ul>
+<li>The most important part of an API</li>
+<li>Defined by &quot;the docs&quot;</li>
+<li>Explains how to get the desired results</li>
+<li>Enables discovery; inspires creativity</li>
+<li>Helps answers important questions
+
+<ul>
+<li>&quot;How do I do X?&quot;&quot;</li>
+<li>&quot;What&#39;s wrong with my code?&quot;&quot;</li>
+</ul></li>
+</ul>
+
+<h3>The Interface Is Critical to the User Experience</h3>
+
+<ul>
+<li>Inaccurate docs = bad customer experience</li>
+<li>Bad customer experience = little/no usage, little/no revenue</li>
+<li>Adoption starts with the interface
+
+<ul>
+<li>Must be understandable</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide " id="slide-20">
+  <h2>The Service (servers)</h2>
+  <ul>
+<li>The actual service is kinda important, too ;)</li>
+<li>Determines &quot;how&quot; to fulfill requests with wide latitude</li>
+<li>Opaque to the customer</li>
+<li>Behavior should be governed by the docs</li>
+<li>Must consistently perform</li>
+</ul>
+
+<h3>Service Performance is Critical to the User Experience</h3>
+
+<ul>
+<li>Slow responses (latency) create problems for app developers</li>
+<li>Vague errors make productionalization difficult</li>
+<li>Inconsistent responses make productionalization impossible</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-21">
+  <h2>Modern APIs (REST)</h2>
+  <ul>
+<li>Under the hood: computers talking to computers</li>
+<li>Problem
+
+<ul>
+<li>Need a common language for computers to understand each other</li>
+<li>Hyper-text Transfer Protocol (HTTP) already exists (the &quot;Internet&quot;)</li>
+</ul></li>
+<li>Solution: 
+
+<ul>
+<li>Configure computers to listen and respond to requests</li>
+<li>Use existing HTTP architecture to enable communication between those computers</li>
+</ul></li>
+<li>How it works:
+
+<ul>
+<li>Open a communication session</li>
+<li>(Request) Client sends entire representation of thing being communicated</li>
+<li>(Response) Server responds</li>
+<li>Immediately close the communication session</li>
+<li>Uni-directional communication; client-initiated</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide " id="slide-22">
+  <h2>Modern APIs (Streaming)</h2>
+  <ul>
+<li>Under the hood: computers talking to computer</li>
+<li>Problem
+
+<ul>
+<li>Existing infrastructure has too much overhead</li>
+<li>Opening and closing multiple connections can be slow and inefficient</li>
+</ul></li>
+<li>Solution:
+
+<ul>
+<li>TCP/WebSocket technolgy enables lightweight, bi-directional communication</li>
+<li>Bi-directional communication = client initiation not required</li>
+</ul></li>
+<li>How it works:
+
+<ul>
+<li>Open a communication session</li>
+<li>Keep connection open for as long as necessary</li>
+<li>Communicate messages of arbitrary length back and forth at will</li>
+<li>Enables publisher - subscriber models; real-time messaging</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide " id="slide-23">
+  <h2>REST vs. Streaming</h2>
+  <p>The difference is primarily in the communication protocol</p>
+
+<ul>
+<li>(HTTP/uni-directional vs. WebSockets/bi-directional)</li>
+</ul>
+
+<p>not the docs, or resources accessed, <em>per se</em></p>
+
+</section>
+<section class="slide " id="slide-24">
+  <h2>Consuming RESTful APIs</h2>
+  <p>Since REST relies on HTTP, REST can be described as taking an action on a resource.</p>
+
+<h3>Examples</h3>
+
+<table><thead>
+<tr>
+<th align="left">Description</th>
+<th align="left">Request</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">Retrieve all customers</td>
+<td align="left"><code>GET /customers</code></td>
+</tr>
+<tr>
+<td align="left">Retrieve a specific customer &nbsp;</td>
+<td align="left"><code>GET /customers/{customer_id}</code></td>
+</tr>
+<tr>
+<td align="left">Create a new customer</td>
+<td align="left"><code>POST /customers</code></td>
+</tr>
+<tr>
+<td align="left">Change a specific customer &nbsp;</td>
+<td align="left"><code>PUT /customers/{customer_id}</code></td>
+</tr>
+<tr>
+<td align="left">Delete a specific customer</td>
+<td align="left"><code>DELETE /customers/{customer_id}</code></td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide " id="slide-25">
+  <h2>Other HTTP Operations</h2>
+  <p>Less common, but still very useful HTTP operations</p>
+
+<table><thead>
+<tr>
+<th align="left">Description</th>
+<th align="left">Request</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">Get headers, not full response body</td>
+<td align="left"><code>HEAD /customers/{customer_id}</code></td>
+</tr>
+<tr>
+<td align="left">Discover supported actions for a resource &nbsp;</td>
+<td align="left"><code>OPTIONS /customers/{customer_id}</code></td>
+</tr>
+<tr>
+<td align="left">Update the <em>changed</em> info about a resource &nbsp;</td>
+<td align="left"><code>PATCH   /customers/{customer_id}</code></td>
+</tr>
+</tbody></table>
+
+<p><br /></p>
+
+<h5>Learn More</h5>
+
+<p>Check out other <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP Methods</a></p>
+
+</section>
+<section class="slide " id="slide-26">
+  <h2>Producing RESTful APIs - Code Later</h2>
+  <p>Like any other product, programming is one of the later steps. Before writing a line a code, we must:</p>
+
+<ol>
+<li>Understand the needs of our users (developers)
+
+<ul>
+<li>Data formats</li>
+<li>Level of skill and experience</li>
+<li>Familiarity with certain tools and languages</li>
+</ul></li>
+<li>Understand the use cases our users are developing
+
+<ul>
+<li>Scalability</li>
+<li>Latency</li>
+<li>Resilience</li>
+<li>Security</li>
+<li>Persistence</li>
+</ul></li>
+</ol>
+
+</section>
+<section class="slide " id="slide-27">
+  <h2>Producing RESTful APIS - Design First</h2>
+  <p>Like all great products, great APIs are designed with users and use cases in mind </p>
+
+<h3>Start with the docs, not the service</h3>
+
+<ul>
+<li>Which endpoints are most important? Categorization?</li>
+<li>Do we need examples? How many? In what languages?</li>
+<li>What data formats should be offered (JSON, XML)?</li>
+<li>Atomic vs. complex payloads?</li>
+<li>What data (core, support, or reference) should be made available in each response?</li>
+<li>Helpful reference vs. superfluous?</li>
+<li>Read the manual vs. play around until you get it right?</li>
+<li>Verbose vs. terse documentation?</li>
+<li>Bandwidth-tight vs. data richness?</li>
+<li>Frequency, volume expectations?</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-28">
+  <h2>Producing APIs: Language Options</h2>
+  <p>Choose whichever server-side language you like:</p>
+
+<ul>
+<li>Ruby</li>
+<li>Scala</li>
+<li>Go</li>
+<li>NodeJS</li>
+<li>Java</li>
+<li>python</li>
+<li>PHP</li>
+</ul>
+
+<p>It doesn&#39;t really matter</p>
+
+</section>
+<section class="slide " id="slide-29">
+  <h2>Use Status Codes</h2>
+  <h3>Select Status Codes</h3>
+
+<table><thead>
+<tr>
+<th align="center">Status &nbsp;</th>
+<th align="left">Error</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">200</td>
+<td align="left">OK</td>
+</tr>
+<tr>
+<td align="center">201</td>
+<td align="left">Created</td>
+</tr>
+<tr>
+<td align="center">202</td>
+<td align="left">Accepted</td>
+</tr>
+<tr>
+<td align="center">301</td>
+<td align="left">Moved Permanently</td>
+</tr>
+<tr>
+<td align="center">400</td>
+<td align="left">Bad Request</td>
+</tr>
+<tr>
+<td align="center">401</td>
+<td align="left">Unauthorized</td>
+</tr>
+<tr>
+<td align="center">403</td>
+<td align="left">Forbidden</td>
+</tr>
+<tr>
+<td align="center">404</td>
+<td align="left">Not Found</td>
+</tr>
+<tr>
+<td align="center">413</td>
+<td align="left">Payload Too Large</td>
+</tr>
+<tr>
+<td align="center">429</td>
+<td align="left">Too Many Requests</td>
+</tr>
+<tr>
+<td align="center">500</td>
+<td align="left">Internal Server Error</td>
+</tr>
+</tbody></table>
+
+<p><a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">https://en.wikipedia.org/wiki/List_of_HTTP_status_codes</a></p>
+
+</section>
+<section class="slide " id="slide-30">
+  <h2>Use Status Codes Correctly</h2>
+  <h4>Who&#39;s fault is it?</h4>
+
+<table><thead>
+<tr>
+<th align="center">Status Code &nbsp;</th>
+<th align="left">Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">400</td>
+<td align="left">Client made a mistake</td>
+</tr>
+<tr>
+<td align="center">500</td>
+<td align="left">Server made a mistake</td>
+</tr>
+</tbody></table>
+
+<p><br ></p>
+
+<h4>Authentication vs. Authorization</h4>
+
+<table><thead>
+<tr>
+<th align="center">Status Code &nbsp;</th>
+<th align="left">Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">401</td>
+<td align="left">Your credentials are wrong</td>
+</tr>
+<tr>
+<td align="center">403</td>
+<td align="left">Regardless of credentials, you are not allowed access</td>
+</tr>
+</tbody></table>
+
+<p><br /></p>
+
+<h4>What kind of success are we talking about?</h4>
+
+<table><thead>
+<tr>
+<th align="center">Status Code &nbsp;</th>
+<th align="left">Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">200</td>
+<td align="left">Not to be used with <code>POST</code> requests</td>
+</tr>
+<tr>
+<td align="center">201</td>
+<td align="left">Not to be used outside of <code>POST</code> requests</td>
+</tr>
+</tbody></table>
+
+</section>
+<section class="slide " id="slide-31">
+  <h2>Specify the desired parameters</h2>
+  <ol>
+<li>What&#39;s required? What&#39;s optional?</li>
+<li>What are the default inputs, if any?</li>
+<li>Integer vs floats</li>
+<li>Strings vs. date stamps vs. datetime stamps</li>
+<li>What are the valid range of possible values?</li>
+</ol>
+
+</section>
+<section class="slide " id="slide-32">
+  <h2>Provide example cURL statements</h2>
+  <h3><code>GET</code> Request</h3>
+
+<pre><code>curl -v -X GET http://www.google.com
+</code></pre>
+
+<h3><code>POST</code> Request</h3>
+
+<pre><code>curl -v -X POST 
+    -d `{&quot;first_name&quot;: &quot;Rashan&quot;, &quot;hobby&quot;: &quot;programming&quot;}` 
+    -H &quot;Content-Type: application/json&quot; 
+    http://www.somewhere.com
+</code></pre>
+
+<p>Most developers will first copy and paste the example to test that an API works.</p>
+
+</section>
+<section class="slide " id="slide-33">
+  <h2>Other Design Considerations</h2>
+  <ul>
+<li>Compress payloads</li>
+<li>Consistently use standard response formats</li>
+<li>Separate actions (verbs) from resources (nouns)
+
+<ul>
+<li>Wrong: <code>/GetCustomers</code> or <code>/customers/get</code></li>
+<li>Right: <code>GET /customers</code></li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide " id="slide-34">
+  <h2>Prefer JSON</h2>
+  <h3>Example JSON</h3>
+
+<pre><code>{&quot;employees&quot;:[
+    { &quot;firstName&quot;:&quot;John&quot;, &quot;lastName&quot;:&quot;Doe&quot; },
+    { &quot;firstName&quot;:&quot;Anna&quot;, &quot;lastName&quot;:&quot;Smith&quot; },
+    { &quot;firstName&quot;:&quot;Peter&quot;, &quot;lastName&quot;:&quot;Jones&quot; }
+]}
+
+Source: https://www.w3schools.com/js/js_json_xml.asp
+</code></pre>
+
+<p>Easier to read = easier to understand.</p>
+
+<p>Most clients will expect JSON</p>
+
+</section>
+<section class="slide " id="slide-35">
+  <h2>Equivalent XML</h2>
+  <pre><code>&lt;employees&gt;
+    &lt;employee&gt;
+        &lt;firstName&gt;John&lt;/firstName&gt; &lt;lastName&gt;Doe&lt;/lastName&gt;
+    &lt;/employee&gt;
+    &lt;employee&gt;
+        &lt;firstName&gt;Anna&lt;/firstName&gt; &lt;lastName&gt;Smith&lt;/lastName&gt;
+    &lt;/employee&gt;
+    &lt;employee&gt;
+        &lt;firstName&gt;Peter&lt;/firstName&gt; &lt;lastName&gt;Jones&lt;/lastName&gt;
+    &lt;/employee&gt;
+&lt;/employees&gt;
+
+Source: https://www.w3schools.com/js/js_json_xml.asp
+</code></pre>
+
+<p>Relatively harder to read = relatively poor user experience</p>
+
+<p>Support XML only if necessary</p>
+
+</section>
+<section class="slide " id="slide-36">
+  <h2>Designing APIs means...</h2>
+  <ol>
+<li>Actively debating &quot;the interface&quot;</li>
+<li>Debating technical details - they are important</li>
+<li>Decomposing assumptions</li>
+<li>Communicating clearly and effectively through a written and visual medium</li>
+</ol>
+
+</section>
+<section class="slide " id="slide-37">
+  <h2>Making the Interface Human-Readable: Apiary</h2>
+  <p><img width = "100%" src = "img/apiary.png" /></p>
+
+</section>
+<section class="slide " id="slide-38">
+  <h2>Making the Interface Human-Readable: API Blueprint</h2>
+  <p><img width = "100%" src = "img/api_blueprint.png" /></p>
+
+</section>
+<section class="slide " id="slide-39">
+  <h2>Making the Interface Human-Readable: apiDoc</h2>
+  <p><img width = "100%" src = "img/api_doc.png" /></p>
+
+</section>
+<section class="slide " id="slide-40">
+  <h2>Making the Interface Human-Readable: Swagger</h2>
+  <p><img width = "100%" src = "img/swagger.png" /></p>
+
+</section>
+<section class="slide " id="slide-41">
+  <h2>Swagger</h2>
+  <p><img width = "100%" src = "img/swagger_home.png" /></p>
+
+</section>
+<section class="slide " id="slide-42">
+  <h2>YAML</h2>
+  <h3>What &quot;YAML&quot; stands for</h3>
+
+<ul>
+<li>Yet Another Mark-up Language</li>
+<li>YAML Ain&#39;t Mark-up Language</li>
+</ul>
+
+<h3>What it is</h3>
+
+<ul>
+<li>A human friendly data serialization standard for all programming languages.</li>
+<li>Used by Swagger to enable human readability and editability of API docs</li>
+</ul>
+
+</section>
+<section class="slide " id="slide-43">
+  <h2>Workflow</h2>
+  <h3>One Time</h3>
+
+<ol>
+<li>Get copy of design framework</li>
+<li>Style as desired (Requires knowledge of <code>HTML/CSS</code> and potentially <code>Javascript</code>)</li>
+</ol>
+
+<h3>For each update cycle</h3>
+
+<ol>
+<li>Launch Swagger (in Browser is easiet)</li>
+<li>Upload or create an API spec (in YAML is easiest)</li>
+<li>Edit in browser</li>
+<li>Review live updates</li>
+<li>Export <code>JSON</code> and <code>YAML</code> when complete (and validated)</li>
+<li>Move to same directory as design framework</li>
+<li>Refresh</li>
+</ol>
+
+</section>
+<section class="slide " id="slide-44">
+  <h2>Demo</h2>
+  <p>Let&#39;s create a new endpoint!</p>
+
+</section>
+<section class="slide " id="slide-45">
+  <h2>Learning More</h2>
+  <ol>
+<li><a href="https://www.programmableweb.com/">Programmable Web</a></li>
+<li><a href="https://code.tutsplus.com/tutorials/a-beginners-guide-to-http-and-rest--net-16340">TutsPlus</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a></li>
+<li><a href="https://en.wikipedia.org/wiki/WebSocket">WebSockets</a></li>
+</ol>
+
+</section>
+</body>
+  <!-- deck.navigation snippet -->
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+  
+  <!-- deck.status snippet -->
+  <p class="deck-status">
+  <span class="deck-status-current"></span>
+    /
+  <span class="deck-status-total"></span>
+  </p>
+  
+  <!-- deck.goto snippet -->
+  <form action="." method="get" class="goto-form">
+  	<label for="goto-slide">Go to slide:</label>
+  	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  	<datalist id="goto-datalist"></datalist>
+  	<input type="submit" value="Go">
+  </form>
+  
+  <!-- deck.hash snippet -->
+  <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  
+  
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/frameworks/deckjs/jquery-1.7.min.js"><\/script>')</script>
+  
+  <!-- Add Slide Class to Build Elements -->
+  <script type='text/javascript'>
+  $('ol.build li').addClass('slide')
+  $('ul.build li').addClass('slide')
+  </script>
+  
+  <!-- Deck Core and extensions -->
+  <script src="libraries/frameworks/deckjs/core/deck.core.js"></script>
+  <script src="libraries/frameworks/deckjs/extensions/goto/deck.goto.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/hash/deck.hash.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/menu/deck.menu.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/scale/deck.scale.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/status/deck.status.js"></script>
+<!-- Initialize the deck -->
+  <script>
+  $(function() {
+  	$.deck('.slide');
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
